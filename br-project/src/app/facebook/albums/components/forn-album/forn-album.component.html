@@ -1,0 +1,44 @@
+<form [formGroup]="albumForm" (ngSubmit)="onSubmit()">
+  <div class="form-group row">
+    <label for="userId" class="col-form-label col-md-3">Usuario :</label>
+    <div class="col-md-9">
+      <select name="userId" id="userId" class="form-control" formControlName="userId">
+        <option value="0">Seleccionar</option>
+        <option value="01">Brandux</option>
+        <option value="02">Didier</option>
+      </select>
+      <div *ngIf = "albumForm.controls['userId'].errors && albumForm.controls['titulo'].errors.required" class="alert alert-warning">El campo es requerido</div>
+      
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Titulo" class="col-form-label col-md-3">Titulo :</label>
+    <div class="col-md-9">
+      <input type="text" id="titulo" placeholder="Ingresar Titulo" class="form-control" formControlName="titulo">
+      <div *ngIf = "albumForm.controls['titulo'].errors && albumForm.controls['titulo'].errors.required" class="alert alert-warning">El campo es requerido</div>
+      <div *ngIf = "albumForm.get('titulo').errors && albumForm.get('titulo').errors.maxlength" class="alert alert-warning">debe tener 10 caracteres</div>
+    </div>
+  </div>
+  <div class="from-gruop row">
+    <div class="col-md-12 text-right">
+      <button class="btn btn-warning" type="button" routerLink="../"> Cancelar</button>
+      <button class="btn btn-info" type="submit" [disabled] = albumForm.invalid> Guardar</button>
+    </div>
+  </div>
+
+</form>
+
+
+
+value:
+<code >
+<!-- para mostras los datos ingresados en el form en Json-->
+  {{ albumForm.value | json }}
+
+</code>
+<br>
+VALID:
+
+<code>
+  {{ albumForm.valid  }}
+</code>
