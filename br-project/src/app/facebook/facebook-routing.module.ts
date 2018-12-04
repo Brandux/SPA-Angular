@@ -22,8 +22,8 @@ const routes: Routes = [
                 loadChildren: './albums/albums.module#AlbumsModule',
             },
             {
-                path: 'photos',
-                loadChildren: ''
+                path: 'users',
+                loadChildren: './users/users.module#UsersModule',
             },
             // {
             //     path: '**',

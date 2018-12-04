@@ -2,14 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { UsersRoutingModule } from './users-routing.module';
-import { UsersFormComponent } from './components/users-form.component';
-import { UsersListComponent } from './components/users-list/users-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UsersService } from './shared/users.service';
+import { FormUsersComponent } from './components/form-users/form-users.component';
+import { ListUsersComponent } from './components/list-users/list-users.component';
 
 @NgModule({
-  declarations: [UsersFormComponent, UsersListComponent],
+  declarations: [FormUsersComponent, ListUsersComponent],
   imports: [
     CommonModule,
+    HttpClientModule,
     UsersRoutingModule
-  ]
+  ],
+  providers:[
+    UsersService
+  ],
 })
 export class UsersModule { }

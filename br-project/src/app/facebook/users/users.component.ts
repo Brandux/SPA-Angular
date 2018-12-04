@@ -2,7 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'vit-users',
-  templateUrl: './users.component.html',
+  template: `
+    <p>
+      users works!
+    </p>
+  `,
   styles: []
 })
 export class UsersComponent implements OnInit {
