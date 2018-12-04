@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { FacebookRoutingModule } from './facebook-routing.module';
 import { FacebookComponent } from './facebook.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
     imports: [
@@ -11,6 +12,7 @@ import { FacebookComponent } from './facebook.component';
     ],
     declarations: [
         FacebookComponent,
+        UsersComponent,
     ]
 })
 export class FacebookModule { }
