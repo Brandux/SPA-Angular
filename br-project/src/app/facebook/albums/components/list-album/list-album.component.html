@@ -4,7 +4,7 @@
           <th>UserId</th>
           <th>Id</th>
           <th>Title</th>
-          
+          <th></th>
       </tr>
   </thead>
   <tbody>
@@ -12,14 +12,14 @@
           <td>{{ album.id }}</td>
           <td>{{ album.userId }}</td>
           <td>{{ album.title }}</td>
-          <!-- <td>
-              <button class="btn btn-primary" (click)="onEdit(post)">
+          <td>
+              <button class="btn btn-success" (click)="onEdit(album.id)">
                   Editar
               </button>
-              <button class="btn btn-danger" (click)="onDeletet(post.id)">
+              <!-- <button class="btn btn-danger" (click)="onDeletet(post.id)">
                   Eliminar
-              </button>
-          </td>-->
+              </button> -->
+          </td>
       </tr>
   </tbody>
 </table>

@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
         <button class="btn btn-success" routerLink="./new" >Nuevo</button>
       </div>
     </div>
-
+    <br>
     <!-- Tabla -->
     <div class="row">
       <div class="col-md-12">

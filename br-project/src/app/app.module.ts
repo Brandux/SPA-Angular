@@ -11,6 +11,9 @@ import { routedComponents, AppRoutingModule } from './app-rounting.module';
 import { FooterComponent } from './layout/footer.component';
 import { ContentComponent } from './layout/content.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
+import { TokenInterceptorService } from './utils/interceptors/token-interceptors.service';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { authGuardService } from './utils/guard/auth-guard.service';
 
 
 // decorador que define un módulo
@@ -25,9 +28,17 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
   ],
   imports: [ // otros módulos que necesitamos para que este funcione
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [ 
+    {
+     provide : HTTP_INTERCEPTORS,
+     useClass : TokenInterceptorService,
+     multi : true
+    },
+    authGuardService /* <-  Para prohibir que el usuarios publicos tengan acceso a las rutas*/
+  ],
   bootstrap: [AppComponent] // componente raíz para el arranque
 })
 /**

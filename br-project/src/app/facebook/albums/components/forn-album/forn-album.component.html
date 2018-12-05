@@ -17,8 +17,22 @@
       <input type="text" id="titulo" placeholder="Ingresar Titulo" class="form-control" formControlName="titulo">
       <div *ngIf = "albumForm.controls['titulo'].errors && albumForm.controls['titulo'].errors.required" class="alert alert-warning">El campo es requerido</div>
       <div *ngIf = "albumForm.get('titulo').errors && albumForm.get('titulo').errors.maxlength" class="alert alert-warning">debe tener 10 caracteres</div>
+      <div *ngIf = "albumForm.get('titulo').errors && albumForm.get('titulo').errors.notempty" class="alert alert-warning">no espacio en blanco</div>
+    
     </div>
   </div>
+
+  <!-- <div class="form-group row">
+    <label for="Titulo" class="col-form-label col-md-3">Numero :</label>
+    <div class="col-md-9">
+      <input type="text" id="Numero" placeholder="Ingresar Numero" class="form-control" formControlName="Numero">
+      <div *ngIf = "albumForm.get('Numero').errors && albumForm.get('Numero').errors.onlyNamber" class="alert alert-warning">Solo numero</div>
+      <div *ngIf = "albumForm.get('Numero').errors && albumForm.get('Numero').errors.notempty" class="alert alert-warning">no espacio en blanco</div>
+      <div *ngIf = "albumForm.get('Numero').errors && albumForm.get('Numero').errors.onlynamberpositive" class="alert alert-warning"> Solo numero positivo</div>
+
+    </div>
+  </div> -->
+
   <div class="from-gruop row">
     <div class="col-md-12 text-right">
       <button class="btn btn-warning" type="button" routerLink="../"> Cancelar</button>

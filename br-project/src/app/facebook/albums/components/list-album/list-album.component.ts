@@ -14,7 +14,7 @@ export class ListAlbumComponent implements OnInit {
   constructor(private albumService: AlbumsService) { }
 
   ngOnInit() {
-    this.loadAlbum()
+    this.loadAlbum();
   }
   private loadAlbum() {
     this.albumService.getAll()
@@ -22,5 +22,9 @@ export class ListAlbumComponent implements OnInit {
             this.albums = albums;
         });
 }
-
+  public onEdit(id){
+      this.albumService.getById(id).subscribe(albums => {
+        this.albums = albums;
+      });
+  }
 }

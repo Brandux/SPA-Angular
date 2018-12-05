@@ -7,17 +7,18 @@ import { ListAlbumComponent, FornAlbumComponent } from './components';
 import { HttpClientModule } from '@angular/common/http';
 import { AlbumsService } from './shared/albums.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CustomValidatosService } from './shared/custom-validatos.service';
 
 @NgModule({
   declarations: [AlbumsComponent, FornAlbumComponent, ListAlbumComponent],
   imports: [
     CommonModule,
     AlbumsRoutingModule,
-    HttpClientModule,
     ReactiveFormsModule
   ],
   providers:[
     AlbumsService,
+    CustomValidatosService
   ],
 })
 export class AlbumsModule { }

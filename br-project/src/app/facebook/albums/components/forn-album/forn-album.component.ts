@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators ,FormGroup, FormBuilder } from '@angular/forms';
+import { CustomValidatosService } from '../../shared/custom-validatos.service';
+import { AlbumsService } from '../../shared/albums.service';
 
 @Component({
   selector: 'vit-forn-album',
@@ -17,7 +19,9 @@ export class FornAlbumComponent implements OnInit {
   // public userId = new FormControl('01');
   // public titulo = new FormControl('mis fotos', [Validators.required , Validators.maxLength(10)] ); 
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder , 
+    private custom : CustomValidatosService,
+    private albumsServices: AlbumsService) { }
 
   ngOnInit() {
     this.buildAlbumForm();
@@ -37,13 +41,23 @@ export class FornAlbumComponent implements OnInit {
   private initializeControls(){
     return {
       userId : ['0', [Validators.required ]],
-      titulo: ['', 
-        [Validators.required , Validators.maxLength(10)] ],
+      titulo: [' ',  [Validators.required , Validators.maxLength(10), this.custom.notEmpty]],
+      // Numero :[ '0' , 
+      //   [
+      //     Validators.required, 
+      //     this.custom.onlyNamber,
+      //     this.custom.notEmpty,
+      //     this.custom.onlyNamberPositivo
+      //   ]
+      // ],
     }
   }
 
   public onSubmit(){
-    console.log(this.albumForm.value);
+    const valor = this.albumForm.value;
+    this.albumsServices.add$(valor).subscribe( Album => {
+      console.log(Response);
+    });
   }
 
   // private initializeControls(){

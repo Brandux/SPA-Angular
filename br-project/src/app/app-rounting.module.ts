@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { authGuardService } from './utils/guard/auth-guard.service';
 
 /**
  * http://localhost:4500/
@@ -23,7 +24,8 @@ const routes: Routes = [
   },
   {
     path: 'facebook',
-    loadChildren: './facebook/facebook.module#FacebookModule'
+    loadChildren: './facebook/facebook.module#FacebookModule',
+    canActivate: [ authGuardService]
   },
   {
     path: '**',

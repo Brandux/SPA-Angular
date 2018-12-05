@@ -19,13 +19,15 @@ export class AlbumsService {
   }
 
   // activar en caso de emergencia
-  /*public getById(id): Observable<Album[]> {
+  public getById(id): Observable<Album[]> {
     return this.httpClient.get<Album[]>(`${this.urlApi}/${id}`)
   }
 
-  public add(data: Album): Observable<Album> {
+  
+  public add$(data: Album): Observable<Album> {
       return this.httpClient.post<Album>(this.urlApi, data);
   }
+  /*
 
   public update(id: number, post: Album): Observable<Album> {
       return this.httpClient.put<Album>(`${this.urlApi}/${id}`, post)
