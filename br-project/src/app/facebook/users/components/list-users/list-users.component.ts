@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../models/users';
+import { UsersService } from '../../shared/users.service';
 
 @Component({
   selector: 'vit-list-users',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListUsersComponent implements OnInit {
 
-  constructor() { }
+  public users: User[];
+
+  constructor(private userService: UsersService) { }
 
   ngOnInit() {
+  }
+
+  private loadUser(){
+    this.userService.getAllUser().subscribe( users => {
+      this.users = users;
+    });
   }
 
 }

@@ -6,13 +6,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsersService } from './shared/users.service';
 import { FormUsersComponent } from './components/form-users/form-users.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { UsersComponent } from './users.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [FormUsersComponent, ListUsersComponent],
+  declarations: [UsersComponent,FormUsersComponent, ListUsersComponent],
   imports: [
     CommonModule,
     HttpClientModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    ReactiveFormsModule
   ],
   providers:[
     UsersService

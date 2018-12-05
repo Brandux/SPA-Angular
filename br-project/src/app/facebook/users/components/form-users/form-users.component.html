@@ -1,3 +1,61 @@
-<p>
-  form-users works!
-</p>
+<form [formGroup]="usersForm" (ngSubmit)="onSave()">
+  <div class="form-group row">
+    <label for="userId" class="col-form-label col-md-3">ID :</label>
+    <div class="col-md-9">
+      <select name="userId" formControlName="userId" id="userId" class="form-control" >
+        <option value="0">Seleccionar</option>
+        <option value="01">Brandux</option>
+        <option value="02">Didier</option>
+      </select>
+      <div *ngIf = "usersForm.controls['userId'].errors && usersForm.controls['userId'].errors.required"  class="alert alert-warning">El campo es requerido</div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Titulo" class="col-form-label col-md-3">Nombre :</label>
+    <div class="col-md-9">
+      <input type="text" formControlName="Nombre" id="Nombre" placeholder="Nombre" class="form-control">
+      <div *ngIf = "usersForm.controls['Nombre'].errors && usersForm.controls['Nombre'].errors.required"  class="alert alert-warning">El campo es requerido</div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Titulo" class="col-form-label col-md-3">Usuario :</label>
+    <div class="col-md-9">
+      <input type="text" formControlName="Usuario" id="Usuario" placeholder="Ingresar Usuario" class="form-control">
+      <div *ngIf = "usersForm.controls['Usuario'].errors && usersForm.controls['Usuario'].errors.required" class="alert alert-warning">El campo es requerido</div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Titulo" class="col-form-label col-md-3">Email :</label>
+    <div class="col-md-9">
+      <input type="email" formControlName="Email" id="Email" placeholder="Ingresar Email" class="form-control">
+      <div *ngIf = "usersForm.controls['Email'].errors && usersForm.controls['Email'].errors.required"  class="alert alert-warning">El campo es requerido</div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Titulo" class="col-form-label col-md-3">phone :</label>
+    <div class="col-md-9">
+      <input type="number" formControlName="phone" id="phone" placeholder="Ingresar phone" class="form-control">
+      <div  *ngIf = "usersForm.controls['phone'].errors && usersForm.controls['phone'].errors.required" class="alert alert-warning">debe tener 9 caracteres</div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Titulo" class="col-form-label col-md-3">website :</label>
+    <div class="col-md-9">
+      <input type="text" formControlName="website" id="website" placeholder="Ingresar website" class="form-control">
+      <div *ngIf = "usersForm.controls['website'].errors && usersForm.controls['website'].errors.required"  class="alert alert-warning">El campo es requerido</div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="Titulo" class="col-form-label col-md-3">company :</label>
+    <div class="col-md-9">
+      <input type="text" formControlName="company" id="company" placeholder="Ingresar company" class="form-control">
+      <div  *ngIf = "usersForm.controls['company'].errors && usersForm.controls['company'].errors.required" class="alert alert-warning">El campo es requerido</div>
+    </div>
+  </div>
+  <div class="from-gruop row">
+    <div class="col-md-12 text-right">
+      <button class="btn btn-warning"  routerLink="../" type="button" > Cancelar</button>
+      <button class="btn btn-info" [disabled] = usersForm.invalid type="submit"> Guardar</button>
+    </div>
+  </div>
+</form>

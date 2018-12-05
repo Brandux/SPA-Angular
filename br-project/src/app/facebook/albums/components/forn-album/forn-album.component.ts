@@ -29,7 +29,6 @@ export class FornAlbumComponent implements OnInit {
   }
 
   private buildAlbumForm(){
-
     const controls = this.initializeControls();
     this.albumForm = this.formBuilder.group(controls);
     //this.albumForm = new FormGroup(controls);
