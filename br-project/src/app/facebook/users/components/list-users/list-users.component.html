@@ -2,33 +2,32 @@
   <thead>
       <tr>
           <th>id</th>
-          <th>name</th>
-          <th>username</th>
+          <th>Nombre </th>
           <th>email</th>
           <th>address</th>
           <th>phone</th>
           <th>website</th>
-          <th>company</th>
+          <th>Company</th>
+          <td></td>
       </tr>
   </thead>
   <tbody>
       <tr *ngFor="let user of users">
           <td>{{ user.id }}</td>
-          <td>{{ user.name }}</td>
-          <td>{{ user.username }}</td>
+          <td>{{ user.name }} , {{ user.username }}</td>
           <td>{{ user.email }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.email }}</td>
-          <!-- <td>
+          <td>{{ user.address.street }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.website }}</td>
+          <td>{{ user.company.name }}</td>
+          <td>
               <button class="btn btn-primary" (click)="onEdit(post)">
                   Editar
               </button>
               <button class="btn btn-danger" (click)="onDeletet(post.id)">
                   Eliminar
               </button>
-          </td>-->
+          </td>
       </tr>
   </tbody>
 </table>

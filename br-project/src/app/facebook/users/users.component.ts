@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
     <div class="row">
       <div class="col-md-12">
         <button class="btn btn-success" routerLink="./new-users" >Nuevo</button>
-        <br>  
+        
       </div>
     </div>
-
+<br>
     <!-- Tabla -->
     <div class="row">
       <div class="col-md-12">
